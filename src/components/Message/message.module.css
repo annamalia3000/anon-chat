@@ -1,0 +1,21 @@
+.message {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 15px;
+
+  height: 100%;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+}
+
+.own-message {
+  background-color: rgb(114, 210, 114);
+  align-self: flex-end;
+  margin-left: 30px;
+}
+
+.other-message {
+  background-color: rgba(128, 128, 128, 0.606);
+  align-self: flex-start;
+  margin-right: 30px;
+}
