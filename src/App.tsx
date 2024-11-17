@@ -33,7 +33,14 @@ const App: React.FC = () => {
     try {
       const response = await axios.get(`${url}?from=${lastId}`);
       if (response.data.length > 0) {
-        setMessages((prevMessages) => [...prevMessages, ...response.data]);
+        setMessages((prevMessages) =>  {
+          const existingIds = new Set(prevMessages.map((msg) => msg.id));
+
+          const newMessages = response.data.filter(
+            (msg: MessageInfo) => !existingIds.has(msg.id)
+          );
+          return [...prevMessages, ...newMessages];
+        });
         setLastId(response.data[response.data.length - 1].id);
       } 
     } catch (error) {
